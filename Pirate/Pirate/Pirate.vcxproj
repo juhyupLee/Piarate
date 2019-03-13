@@ -140,12 +140,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CGameObject.cpp" />
+    <ClCompile Include="CKeynDraw.cpp" />
+    <ClCompile Include="CMainScene.cpp" />
     <ClCompile Include="CPlayer.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CGameObject.h" />
+    <ClInclude Include="CKeynDraw.h" />
+    <ClInclude Include="CMainScene.h" />
     <ClInclude Include="CPlayer.h" />
+    <ClInclude Include="Enum.h" />
     <ClInclude Include="Library.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -5,4 +5,6 @@
 #include <Windows.h>
 #include <vector>
 #include <list>
+
+#include "Enum.h"
 using namespace std;
