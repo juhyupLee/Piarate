@@ -6,7 +6,7 @@ int main()
 
 	CMainScene* pMain = new CMainScene;
 
-	//pMain->Main_Running();
+	pMain->Main_Running();
 
 
 	delete pMain;

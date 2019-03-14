@@ -3,7 +3,7 @@
 class CGameObject
 {
 public:
-	CGameObject();
+	CGameObject(const char* pName,int hp, int mp);
 	~CGameObject();
 
 protected:

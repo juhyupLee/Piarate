@@ -1,7 +1,6 @@
 #pragma once
 #include "Library.h"
-#include "CMainScene.h"
-
+class CMainScene;
 class CKeynDraw
 {
 public:
@@ -17,11 +16,13 @@ private:
 	
 public:
 	void Draw_Player();
-	//void Draw_Main(const CMainScene & cmain);
-
+	MainMenu Draw_Main(const CMainScene& cmain);
+	StoreMenu Draw_Store(const CMainScene& cmain);
 	
 private:
+	const int CursorSpeed;
 	bool m_IsKeyDown[4] ;
+	bool m_isFirstDraw[10];
 	COORD pos;
 
 	

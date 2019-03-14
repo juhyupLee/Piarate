@@ -143,13 +143,16 @@
     <ClCompile Include="CKeynDraw.cpp" />
     <ClCompile Include="CMainScene.cpp" />
     <ClCompile Include="CPlayer.cpp" />
+    <ClCompile Include="CStore.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CGameObject.h" />
     <ClInclude Include="CKeynDraw.h" />
+    <ClInclude Include="CLinkedList.h" />
     <ClInclude Include="CMainScene.h" />
     <ClInclude Include="CPlayer.h" />
+    <ClInclude Include="CStore.h" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="Library.h" />
   </ItemGroup>

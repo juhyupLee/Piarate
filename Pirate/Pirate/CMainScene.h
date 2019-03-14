@@ -18,21 +18,89 @@ public:
 		cout << "4.출항" << endl;
 		cout << "5.나가기" << endl;
 	}
+	void Print_Store()const
+	{
+		m_pPlayer->Print_PlayerInfo();
+		cout << "■■■■■■■■■■■■■■■■" << endl;
+		cout << "■           EXIT             ■" << endl;
+		cout << "■            ㉧              ■" << endl;
+		cout << "■      ▩           ▩       ■" << endl;
+		cout << "■   (Weapon)     (Protect)   ■" << endl;
+		cout << "■                            ■" << endl;
+		cout << "■                            ■" << endl;
+		cout << "■      ▩           ▩       ■" << endl;
+		cout << "■    (Ship)      (Potion)    ■" << endl;
+		cout << "■                            ■" << endl;
+		cout << "■■■■■■■■■■■■■■■■" << endl;
+	}
+	void Print_Weapon()const
+	{
+		
+	}
+
 public:
-	//void Main_Running()
-	//{
-	//	Print_Main();
-	//	while (true)
-	//	{
-	//		//m_pKeynDraw->Draw_Main(this);
+	void Main_Running()
+	{
+		Print_Main();
+		MainMenu Select ;
 
-	//	}
-	//	
-	//}
+		while (true)
+		{
+			Select = m_pKeynDraw->Draw_Main(*this);
+			switch (Select)
+			{
+			case STORE:
+				Store_Running();
+				break;
+			case INVENTORY:
+				break;
+			case SHIP_MAINTAIN:
+				break;
+			case DEPARTURE:
+				return;
+				break;
+			}
+		}
+		
+	}
 
+	void Store_Running()
+	{
+		system("cls");
+		Print_Store();
+		StoreMenu Select;
+
+		while (true)
+		{
+			Select = m_pKeynDraw->Draw_Store(*this);
+			switch (Select)
+			{
+			case WEAPON:
+				cout << "hi" << endl;
+				break;
+			case PROTECT:
+				break;
+			case SHIP:
+				break;
+			case POTION:
+				break;
+			case STORE_EXIT:
+				return;
+				break;
+				
+			}
+
+		}
+	}
+
+	void WeaponStore(void)
+	{
+		system("cls");
+
+	}
 private:
 	CPlayer* m_pPlayer;
-	CKeynDraw* m_pKeynDraw();
+	CKeynDraw* m_pKeynDraw;
 
 
 };
