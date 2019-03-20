@@ -10,6 +10,9 @@ CKeynDraw::CKeynDraw()
 	{
 		m_isFirstDraw[i] = true;
 	}
+
+	m_isEnterKeyDown = false;
+
 }
 
 CKeynDraw::~CKeynDraw()
@@ -98,6 +101,28 @@ bool CKeynDraw::KeyCheck(void)
 	return IsValueChange;
 }
 
+bool CKeynDraw::EnterCheck(void)
+{
+	
+	if (GetKeyState(VK_RETURN) < 0)
+	{
+		m_isEnterKeyDown = true;
+	
+	}
+	else
+	{
+		if (m_isEnterKeyDown)
+		{
+			m_isEnterKeyDown = false;
+			return true;
+		}
+
+	}
+
+	return false;
+
+}
+
 void CKeynDraw::Draw_Player()
 {
 	
@@ -116,7 +141,7 @@ MainMenu CKeynDraw::Draw_Main(const CMainScene& cmain)
 		system("cls");
 		cmain.Print_Main();
 		pos.X = 14;
-		pos.Y = 8;
+		pos.Y = 9;
 		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
 		cout << "←";
 		m_isFirstDraw[IS_MAIN] = false;
@@ -141,7 +166,7 @@ MainMenu CKeynDraw::Draw_Main(const CMainScene& cmain)
 
 	}
 
-	if (GetKeyState(VK_RETURN) < 0)
+	if (EnterCheck())
 	{
 		m_isFirstDraw[IS_MAIN] = true;
 		return (MainMenu)pos.Y;
@@ -154,6 +179,8 @@ StoreMenu CKeynDraw::Draw_Store(const CMainScene & cmain)
 {
 	if (m_isFirstDraw[IS_STORE])
 	{
+		system("cls");
+		cmain.Print_Store();
 		pos.X = 14;
 		pos.Y = 14;
 		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
@@ -186,27 +213,93 @@ StoreMenu CKeynDraw::Draw_Store(const CMainScene & cmain)
 		cout << "★"<<pos.X<<pos.Y;
 	}
 
-	if (9 == pos.X && 11 == pos.Y)
+	if (9 == pos.X && 12 == pos.Y)
 	{
+		m_isFirstDraw[IS_STORE] = true;
 		return WEAPON;
 	}
-	else if (21 == pos.X && 11 == pos.Y)
+	else if (21 == pos.X && 12 == pos.Y)
 	{
+		m_isFirstDraw[IS_STORE] = true;
 		return PROTECT;
 	}
-	else if (8 == pos.X && 15 == pos.Y)
+	else if (8 == pos.X && 16 == pos.Y)
 	{
+		m_isFirstDraw[IS_STORE] = true;
 		return SHIP;
 	}
-	else if (21 == pos.X && 15 == pos.Y)
+	else if (21 == pos.X && 16 == pos.Y)
 	{
+		m_isFirstDraw[IS_STORE] = true;
 		return POTION;
 	}
-	else if (14 == pos.X && 10 == pos.Y)
+	else if (14 == pos.X && 11 == pos.Y) // 종료
 	{
 		m_isFirstDraw[IS_STORE] = true;
 		return STORE_EXIT;
 	}
 
 	return STORE_ETC;
+}
+
+Weapon CKeynDraw::Draw_WeaponStore(const CMainScene & cmain)
+{
+	
+	if (m_isFirstDraw[IS_WEAPON])
+	{
+		system("cls");
+		cmain.Print_Weapon();
+		pos.X = 42;
+		pos.Y = 11;
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
+		cout << "←";
+		m_isFirstDraw[IS_WEAPON] = false;
+	}
+
+	if (KeyCheck())
+	{
+		system("cls");
+		cmain.Print_Weapon();
+
+		if (pos.X > 42 || pos.X < 42)
+		{
+			pos.X = 42; // 14로 고정
+		}
+		if (pos.Y > 15 || pos.Y < 10)
+		{
+			pos.Y = 10;
+		}
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
+		cout << "←";
+
+	}
+	
+	
+	if (EnterCheck())// 엔터키입력
+	{
+		m_isFirstDraw[IS_WEAPON] = true;
+		return (Weapon)pos.Y;
+	}
+
+
+	return WEAPON_ETC;
+}
+
+int CKeynDraw::Draw_Inventory(const CMainScene & cmain)
+{
+
+	int Select = 0;
+
+	if (m_isFirstDraw[IS_INVENTORY])
+	{
+		system("cls");
+		cmain.Print_Inventory();	
+		m_isFirstDraw[IS_INVENTORY] = false;
+	}
+
+	cin >> Select;
+	m_isFirstDraw[IS_INVENTORY] = true;
+
+	return Select;
+
 }

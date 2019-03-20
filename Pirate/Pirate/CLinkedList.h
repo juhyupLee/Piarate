@@ -61,11 +61,11 @@ public:
 	}
 	bool operator !=(const CLinkedListIterator<T>& iter)
 	{
-		return m_pNode != iter.m_pNode
+		return m_pNode != iter.m_pNode;
 	}
 	bool operator ==(const CLinkedListIterator<T>& iter)
 	{
-		return m_pNode == iter.m_pNode
+		return m_pNode == iter.m_pNode;
 	}
 private:
 	typedef CLinkedListNode<T>* PNODE;
@@ -194,7 +194,7 @@ public:
 
 private:
 	typedef CLinkedListNode<T>* PNODE;
-	typedef CLinkedListNode<T>* NODE;
+	typedef CLinkedListNode<T> NODE;
 
 private:
 	PNODE m_Begin;

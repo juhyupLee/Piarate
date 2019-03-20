@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CGameObject.cpp" />
+    <ClCompile Include="CItem.cpp" />
     <ClCompile Include="CKeynDraw.cpp" />
     <ClCompile Include="CMainScene.cpp" />
     <ClCompile Include="CPlayer.cpp" />
@@ -148,6 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CGameObject.h" />
+    <ClInclude Include="CItem.h" />
     <ClInclude Include="CKeynDraw.h" />
     <ClInclude Include="CLinkedList.h" />
     <ClInclude Include="CMainScene.h" />
