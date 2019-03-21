@@ -51,7 +51,7 @@ public:
 		system("cls");
 		m_pPlayer->Print_PlayerInfo();
 		m_pPlayer->Print_Itemlist();
-		cout << "아이템을 고르십시오:";
+		cout << "아이템을 고르십시오:(-1번 나가기)";
 
 	}
 	void Print_Item() const
@@ -81,6 +81,8 @@ public:
 			case SHIP_MAINTAIN:
 				break;
 			case DEPARTURE:
+				break;
+			case EXIT:
 				return;
 				break;
 			}
@@ -157,6 +159,11 @@ public:
 		while (true)
 		{
 			ItemNo = m_pKeynDraw->Draw_Inventory(*this);
+			if (-1==ItemNo)
+			{
+				return;
+			}
+				
 			Print_Item();
 			cin >> Itemact;
 			

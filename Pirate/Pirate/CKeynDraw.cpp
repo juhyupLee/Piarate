@@ -157,9 +157,9 @@ MainMenu CKeynDraw::Draw_Main(const CMainScene& cmain)
 			pos.X = 14; // 14로 고정
 		}
 		//8 9 10 11
-		if (pos.Y > 12 || pos.Y < 8)
+		if (pos.Y > 13 || pos.Y < 9)
 		{
-			pos.Y = 8;
+			pos.Y = 9;
 		}
 		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
 		cout << "←";
@@ -287,7 +287,6 @@ Weapon CKeynDraw::Draw_WeaponStore(const CMainScene & cmain)
 
 int CKeynDraw::Draw_Inventory(const CMainScene & cmain)
 {
-
 	int Select = 0;
 
 	if (m_isFirstDraw[IS_INVENTORY])
@@ -297,7 +296,8 @@ int CKeynDraw::Draw_Inventory(const CMainScene & cmain)
 		m_isFirstDraw[IS_INVENTORY] = false;
 	}
 
-	cin >> Select;
+	cin>>Select;
+
 	m_isFirstDraw[IS_INVENTORY] = true;
 
 	return Select;
